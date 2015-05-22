@@ -122,7 +122,24 @@ $this->fontdata = array(
 		'I' => "DejaVuSansMono-Oblique.ttf",
 		'BI' => "DejaVuSansMono-BoldOblique.ttf",
 		),
-
+	"frutiger" => array(
+		'R' => "FrutigerNextLTW1G-RegularCn",
+		'B' => "FrutigerNextLTW1G-RegularCn",
+		'I' => "FrutigerNextLTW1G-RegularCn",
+		'BI' => "FrutigerNextLTW1G-RegularCn"
+		),
+	"frutigerheavy" => array(
+		'R' => "FrutigerNextLTW1G-HeavyCn",
+		'B' => "FrutigerNextLTW1G-HeavyCn",
+		'I' => "FrutigerNextLTW1G-HeavyCn",
+		'BI' => "FrutigerNextLTW1G-HeavyCn"
+		),
+	"frutigerlight" => array(
+		'R' => "FrutigerNextLTW1G-LightCn",
+		'B' => "FrutigerNextLTW1G-LightCn",
+		'I' => "FrutigerNextLTW1G-LightCn",
+		'BI' => "FrutigerNextLTW1G-LightCn"
+		),
 
 /* OCR-B font for Barcodes */
 	"ocrb" => array(
