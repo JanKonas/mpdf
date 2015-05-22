@@ -123,22 +123,22 @@ $this->fontdata = array(
 		'BI' => "DejaVuSansMono-BoldOblique.ttf",
 		),
 	"frutiger" => array(
-		'R' => "FrutigerNextLTW1G-RegularCn",
-		'B' => "FrutigerNextLTW1G-RegularCn",
-		'I' => "FrutigerNextLTW1G-RegularCn",
-		'BI' => "FrutigerNextLTW1G-RegularCn"
+		'R' => "FrutigerNextLTW1G-RegularCn.ttf",
+		'B' => "FrutigerNextLTW1G-RegularCn.ttf",
+		'I' => "FrutigerNextLTW1G-RegularCn.ttf",
+		'BI' => "FrutigerNextLTW1G-RegularCn.ttf"
 		),
 	"frutigerheavy" => array(
-		'R' => "FrutigerNextLTW1G-HeavyCn",
-		'B' => "FrutigerNextLTW1G-HeavyCn",
-		'I' => "FrutigerNextLTW1G-HeavyCn",
-		'BI' => "FrutigerNextLTW1G-HeavyCn"
+		'R' => "FrutigerNextLTW1G-HeavyCn.ttf",
+		'B' => "FrutigerNextLTW1G-HeavyCn.ttf",
+		'I' => "FrutigerNextLTW1G-HeavyCn.ttf",
+		'BI' => "FrutigerNextLTW1G-HeavyCn.ttf"
 		),
 	"frutigerlight" => array(
-		'R' => "FrutigerNextLTW1G-LightCn",
-		'B' => "FrutigerNextLTW1G-LightCn",
-		'I' => "FrutigerNextLTW1G-LightCn",
-		'BI' => "FrutigerNextLTW1G-LightCn"
+		'R' => "FrutigerNextLTW1G-LightCn.ttf",
+		'B' => "FrutigerNextLTW1G-LightCn.ttf",
+		'I' => "FrutigerNextLTW1G-LightCn.ttf",
+		'BI' => "FrutigerNextLTW1G-LightCn.ttf"
 		),
 
 /* OCR-B font for Barcodes */
