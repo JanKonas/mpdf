@@ -140,6 +140,18 @@ $this->fontdata = array(
 		'I' => "FrutigerNextLTW1G-LightCn.ttf",
 		'BI' => "FrutigerNextLTW1G-LightCn.ttf"
 		),
+	"myriadpro" => array(
+		'R' => "MyriadPro-Regular.ttf",
+		'B' => "MyriadPro-Bold.ttf",
+		'I' => "MyriadPro-Regular.ttf",
+		'BI' => "MyriadPro-Bold.ttf"
+		),
+	"myriadprolight" => array(
+		'R' => "MyriadPro-Light.ttf",
+		'B' => "MyriadPro-Bold.ttf",
+		'I' => "MyriadPro-Light.ttf",
+		'BI' => "MyriadPro-Bold.ttf"
+		),
 
 /* OCR-B font for Barcodes */
 	"ocrb" => array(
