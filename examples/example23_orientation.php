@@ -20,10 +20,10 @@ $html = '
 //==============================================================
 //==============================================================
 
-include("../mpdf.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
 
-$mpdf=new mPDF('c','A4','','',42,15,67,67,20,15); 
+$mpdf = new mPDF('c','A4','','',42,15,67,67,20,15);
 
 $mpdf->SetDisplayMode('fullpage','two');
 
@@ -102,7 +102,7 @@ $mpdf->setHeader();	// Clear headers before adding page
 $mpdf->AddPage('','','','','',42,15,67,67,20,15);	// Default is Portrait (because that was the document default)
 
 
-$mpdf->SetHTMLHeader($shortheader,'',true);	// New parameter in v1.4 to add the header to the new page
+$mpdf->SetHTMLHeader($shortheader,'',true);	// true adds the header to the new page
 $mpdf->SetHTMLHeader($shortheaderE,'E',true);
 $mpdf->SetHTMLFooter($longfooter);
 $mpdf->SetHTMLFooter($longfooterE,'E');
@@ -127,6 +127,3 @@ exit;
 //==============================================================
 //==============================================================
 //==============================================================
-
-
-?>

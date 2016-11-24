@@ -64,7 +64,7 @@ $html = '
 <p>&nbsp;</p>
 
 <h4>Testing Justification with Long Words</h4>
-<p>http://www-950.ibm.com/software/globalization/icu/demo/converters?s=ALL&amp;snd=4356&amp;dnd=4356</p>
+<p><a href="http://www-950.ibm.com/software/globalization/icu/demo/converters?s=ALL&amp;snd=4356&amp;dnd=4356">http://www-950.ibm.com/software/globalization/icu/demo/converters?s=ALL&amp;snd=4356&amp;dnd=4356</a></p>
 <h5>Should not split</h5>
 <p>Maecenas feugiat pede vel risus. Nulla et lectus eleifend <i>verylongwordthatwontsplit</i> neque sit amet erat</p>
 <p>Maecenas feugiat pede vel risus. Nulla et lectus eleifend et <i>verylongwordthatwontsplit</i> neque sit amet erat</p>
@@ -76,15 +76,15 @@ $html = '
 <h4>Testing Justification with mixed Styles</h4>
 <p>This is <s>strikethrough</s> in <b><s>block</s></b> and <small>small <s>strikethrough</s> in <i>small span</i></small> and <big>big <s>strikethrough</s> in big span</big> and then <u>underline</u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</p>
 <p>This is a <font color="#008800">green reference<sup>32-47</sup></font> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> then <s>Strikethrough reference<sup>32-47</sup></s> and <s>strikethrough reference<sub>32-47</sub></s> and then more text.
-</p> 
+</p>
 <p><big>Repeated in <u>BIG</u>: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</big>
-</p> 
-<p><small>Repeated in small: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</small> 
+</p>
+<p><small>Repeated in small: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</small>
 </p>
 
 <p style="font-size:7pt;">This is <s>strikethrough</s> in block and <big>big <s>strikethrough</s> in big span</big> and then <u>underline</u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</p>
 <p style="font-size:7pt;">This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> then <s>Strikethrough reference<sup>32-47</sup></s> and <s>strikethrough reference<sub>32-47</sub></s> then more text.
-</p> 
+</p>
 <p></p>
 <p style="font-size:7pt;">
 <big>Repeated in BIG: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</big>
@@ -94,9 +94,9 @@ $html = '
 //==============================================================
 //==============================================================
 //==============================================================
-include("../mpdf.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$mpdf=new mPDF('c','A4','','',32,25,27,25,16,13); 
+$mpdf = new mPDF('c','A4','','',32,25,27,25,16,13);
 
 $mpdf->SetDisplayMode('fullpage');
 
@@ -125,6 +125,3 @@ $mpdf->WriteHTML("<h5>Mixed Character and Word spacing</h5><p>Maecenas feugiat p
 
 $mpdf->Output();
 exit;
-
-
-?>

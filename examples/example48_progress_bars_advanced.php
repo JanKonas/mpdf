@@ -1,16 +1,9 @@
 <?php
 
-//==============================================================
-//==============================================================
-define("_JPGRAPH_PATH", '../../jpgraph_5/jpgraph/'); // must define this before including mpdf.php file
-$JpgUseSVGFormat = true;
 
 define('_MPDF_URI','../'); 	// must be  a relative or absolute URI - not a file system path
-//==============================================================
-//==============================================================
 
 
-ini_set("memory_limit","64M");
 
 $html = '
 <html><head>
@@ -22,24 +15,24 @@ $html = '
 
 		h1, h2, h3, h4, h5, h6 { font-family: DejaVuSansCondensed; }
 		table {font-family: DejaVuSansCondensed; font-size: 9pt; line-height: 1.2;
-			vertical-align: top; 
+			vertical-align: top;
 			margin-top: 2pt; margin-bottom: 5pt;
 			border-collapse: collapse;  }
 
 		thead {	font-weight: bold; vertical-align: bottom; }
 
-		th {	font-weight: bold; 
-			text-align:left; 
-			padding-left: 2mm; 
-			padding-right: 2mm; 
-			padding-top: 0.5mm; 
-			padding-bottom: 0.5mm; 
+		th {	font-weight: bold;
+			text-align:left;
+			padding-left: 2mm;
+			padding-right: 2mm;
+			padding-top: 0.5mm;
+			padding-bottom: 0.5mm;
 		 }
 
-		td {	padding-left: 2mm; 
-			text-align:left; 
-			padding-right: 2mm; 
-			padding-top: 0.5mm; 
+		td {	padding-left: 2mm;
+			text-align:left;
+			padding-right: 2mm;
+			padding-top: 0.5mm;
 			padding-bottom: 0.5mm;
 		 }
 
@@ -53,7 +46,7 @@ $html = '
 		table.tallcells td {
 			padding-top: 3mm;
 			padding-bottom: 3mm;
-		}	.sub td { vertical-align:top; border-top:0px; border-bottom:0px; padding:2px; padding-right:8px; 
+		}	.sub td { vertical-align:top; border-top:0px; border-bottom:0px; padding:2px; padding-right:8px;
 			margin:0; font-size:9pt; }
 		.sub { align:center; border:#888888 1px solid; }
 		thead td { font-weight: bold; }
@@ -111,8 +104,8 @@ $html = '
 		.headerrow td, .headerrow th { background-gradient: linear #b7cebd #f5f8f5 0 1 0 0.2;  }
 		.footerrow td, .footerrow th { background-gradient: linear #b7cebd #f5f8f5 0 1 0 0.2;  }
 
-		.evenrow td, .evenrow th { background-color: #f5f8f5; } 
-		.oddrow td, .oddrow th { background-color: #e3ece4; } 
+		.evenrow td, .evenrow th { background-color: #f5f8f5; }
+		.oddrow td, .oddrow th { background-color: #e3ece4; }
 
 		.bpmTopic {	background-color: #e3ece4; }
 		.bpmTopicC { background-color: #e3ece4; }
@@ -152,7 +145,7 @@ $html = '
 		.liste{ list-style-type: disc; }
 
 		.roundgradient {
-			border:0.05mm solid #220044; 
+			border:0.05mm solid #220044;
 			background-color: #f0f2ff;
 			background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;
 			border-radius: 10mm / 10mm;
@@ -160,12 +153,82 @@ $html = '
 			padding: 3.3mm;
 		}
 		.phpcode {
-			border:1px solid #555555; 
-			background-color: #DDDDDD; 
-			padding: 1em; 
-			font-size:8pt; 
+			border:1px solid #555555;
+			background-color: #DDDDDD;
+			padding: 1em;
+			font-size:8pt;
 			font-family: lucidaconsole, mono;
 		}
+
+/* For Index */
+div.mpdf_index_main {
+	line-height: normal;
+	font-family: sans-serif;
+	font-size: 11pt;
+}
+div.mpdf_index_entry {
+	line-height: normal;
+	font-family: sans-serif;
+	font-size: 11pt;
+	text-indent: -1.5em;
+}
+div.mpdf_index_letter {
+	line-height: normal;
+	font-family: sans-serif;
+	font-size: 1.8em;
+	font-weight: bold;
+	text-transform: uppercase;
+	page-break-after: avoid;
+	margin-top: 0.3em;
+	margin-collapse: collapse;
+}
+a.mpdf_index_link {
+	color: #000000;
+	text-decoration: none;
+}
+
+
+
+/* For Table of Contents */
+div.mpdf_toc {
+	font-family: sans-serif;
+	font-size: 11pt;
+}
+a.mpdf_toc_a  {
+	text-decoration: none;
+	color: black;
+}
+div.mpdf_toc_level_0 {		/* Whole line level 0 */
+	line-height: 1.5;
+	margin-left: 0;
+	padding-right: 2em;	/* should match e.g <dottab outdent="2em" /> 0 is default */
+}
+span.mpdf_toc_t_level_0 {	/* Title level 0 - may be inside <a> */
+	font-weight: bold;
+}
+span.mpdf_toc_p_level_0 {	/* Page no. level 0 - may be inside <a> */
+}
+div.mpdf_toc_level_1 {		/* Whole line level 1 */
+	margin-left: 2em;
+	text-indent: -2em;
+	padding-right: 2em;	/* should match <dottab outdent="2em" /> 2em is default */
+}
+span.mpdf_toc_t_level_1 {	/* Title level 1 */
+	font-style: italic;
+	font-weight: bold;
+}
+span.mpdf_toc_p_level_1  {	/* Page no. level 1 - may be inside <a> */
+}
+div.mpdf_toc_level_2 {		/* Whole line level 2 */
+	margin-left: 4em;
+	text-indent: -2em;
+	padding-right: 2em;	/* should match <dottab outdent="2em" /> 2em is default */
+}
+span.mpdf_toc_t_level_2 {	/* Title level 2 */
+}
+span.mpdf_toc_p_level_2 {	/* Page no. level 2 - may be inside <a> */
+}
+
 	</style>
 </head><body>
 
@@ -214,7 +277,7 @@ $mpdf->Shaded_box(\'mPDF Example File\', \'Trebuchet\', \'\', 28, \'70%\', \'DF\
 
 
 <!-- TABLES OF CONTENTS -->
-<tocpagebreak toc-preHTML="&lt;h2&gt;CONTENTS&lt;/h2&gt;" links="1" toc-bookmarkText="Contents" resetpagenum="1" pagenumstyle="1" 
+<tocpagebreak toc-preHTML="&lt;h2&gt;CONTENTS&lt;/h2&gt;" links="1" toc-bookmarkText="Contents" resetpagenum="1" pagenumstyle="1"
 odd-header-name="html_myHTMLHeaderOdd" odd-header-value="1" even-header-name="html_myHTMLHeaderEven" even-header-value="1" odd-footer-name="myFooter2Odd" odd-footer-value="1" even-footer-name="myFooter2Even" even-footer-value="1" />
 
 <tocpagebreak name="Figures" toc-preHTML="&lt;h2&gt;FIGURES&lt;/h2&gt;" links="1" toc-bookmarkText="Figures" />
@@ -245,11 +308,11 @@ odd-header-name="html_myHTMLHeaderOdd" odd-header-value="1" even-header-name="ht
 
 <address>Address: Vestibulum feugiat, orci at imperdiet tincidunt, mauris erat facilisis urna, sagittis ultricies dui nisl et lectus. Sed lacinia, lectus vitae dictum sodales, elit ipsum ultrices orci, non euismod arcu diam non metus.</address>
 
-<pre>PRE: Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. In suscipit turpis vitae odio. Integer convallis 
-dui at metus. Fusce magna. Sed sed lectus vitae enim tempor cursus. Cras 
-sed, posuere et, urna. Quisque ut leo. Aliquam interdum hendrerit tortor. 
-Vestibulum elit. Vestibulum et arcu at diam mattis commodo. Nam ipsum sem, 
+<pre>PRE: Cum sociis natoque penatibus et magnis dis parturient montes,
+nascetur ridiculus mus. In suscipit turpis vitae odio. Integer convallis
+dui at metus. Fusce magna. Sed sed lectus vitae enim tempor cursus. Cras
+sed, posuere et, urna. Quisque ut leo. Aliquam interdum hendrerit tortor.
+Vestibulum elit. Vestibulum et arcu at diam mattis commodo. Nam ipsum sem,
 ultricies at, rutrum sit amet, posuere nec, velit. Sed molestie mollis dui.</pre>
 
 <div><a href="http://mpdf.bpm1.com/manual/">Hyperlink (&lt;a&gt;)</a></div>
@@ -264,9 +327,9 @@ ultricies at, rutrum sit amet, posuere nec, velit. Sed molestie mollis dui.</pre
 <h3>Testing BIG, SMALL, UNDERLINE, STRIKETHROUGH, FONT color, ACRONYM, SUPERSCRIPT and SUBSCRIPT</h3>
 <p>This is <s>strikethrough</s> in <b><s>block</s></b> and <small>small <s>strikethrough</s> in <i>small span</i></small> and <big>big <s>strikethrough</s> in big span</big> and then <u>underline and <s>strikethrough and <sup>sup</sup></s></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</p>
 
-<p>This is a <font color="#008800">green reference<sup>32-47</sup></font> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> then <s>Strikethrough reference<sup>32-47</sup></s> and <s>strikethrough reference<sub>32-47</sub></s></p> 
+<p>This is a <font color="#008800">green reference<sup>32-47</sup></font> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> then <s>Strikethrough reference<sup>32-47</sup></s> and <s>strikethrough reference<sub>32-47</sub></s></p>
 
-<p><big>Repeated in <u>BIG</u>: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</big></p> 
+<p><big>Repeated in <u>BIG</u>: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</big></p>
 
 <p><small>Repeated in small: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</small></p>
 
@@ -281,7 +344,7 @@ ultricies at, rutrum sit amet, posuere nec, velit. Sed molestie mollis dui.</pre
 <p><small>This tests <u>underline</u> and <s>strikethrough</s> when they are <s><u>used together</u></s> as they both use text-decoration</small></p>
 
 
-<p><small>Repeated in small: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</small></p> 
+<p><small>Repeated in small: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</small></p>
 
 <p style="font-size:7pt;"><big>Repeated in BIG but with font-size set to 7pt by in-line css: This is reference<sup>32-47</sup> and <u>underlined reference<sup>32-47</sup></u> then reference<sub>32-47</sub> and <u>underlined reference<sub>32-47</sub></u> but out of span again but <font color="#000088">blue</font> font and <acronym>ACRONYM</acronym> text</big></p>
 
@@ -289,7 +352,7 @@ ultricies at, rutrum sit amet, posuere nec, velit. Sed molestie mollis dui.</pre
 <li>Item <b><u>1</u></b></li>
 <li>Item 2<sup>32</sup></li>
 <li><small>Item</small> 3</li>
-<li>Praesent pharetra nulla in turpis. Sed ipsum nulla, sodales nec, vulputate in, scelerisque vitae, magna. Sed egestas justo nec ipsum. Nulla facilisi. Praesent sit amet pede quis metus aliquet vulputate. Donec luctus. Cras euismod tellus vel leo. 
+<li>Praesent pharetra nulla in turpis. Sed ipsum nulla, sodales nec, vulputate in, scelerisque vitae, magna. Sed egestas justo nec ipsum. Nulla facilisi. Praesent sit amet pede quis metus aliquet vulputate. Donec luctus. Cras euismod tellus vel leo.
 <ul>
 <li>Praesent pharetra nulla in turpis. Sed ipsum nulla, sodales nec, vulputate in, scelerisque vitae, magna. Sed egestas justo nec ipsum. Nulla facilisi. Praesent sit amet pede quis metus aliquet vulputate. Donec luctus. Cras euismod tellus vel leo. </li>
 <li>Subitem 2
@@ -1479,21 +1542,21 @@ Etiam id libero at magna pellentesque aliquet. Nulla sit amet ipsum id enim temp
 <select size="1" name="status"><option value="A">Active</option><option value="W" >New item from auto_manager: pending validation</option><option value="I" selected="selected">Incomplete record - pending</option><option value="X" >Flagged for Deletion</option> </select> followed by text
 <br /><br />
 <b>Input Radio</b>
-<input type="radio" name="recommended" value="0" > No &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="recommended" value="1" > Keep &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="recommended" value="2"  checked="checked" > Choice 
+<input type="radio" name="recommended" value="0" > No &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="recommended" value="1" > Keep &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="recommended" value="2"  checked="checked" > Choice
 <br /><br />
 <b>Input Text</b>
-<input type="text" size="190" name="doi" value="10.1258/jrsm.100.5.211"> 
+<input type="text" size="190" name="doi" value="10.1258/jrsm.100.5.211">
 <br /><br />
 <b>Input Password</b>
-<input type="password" size="40" name="password" value="secret"> 
+<input type="password" size="40" name="password" value="secret">
 <br /><br />
 <input type="checkbox" name="QPC" value="ON" > Checkboxes<br>
 <input type="checkbox" name="QPA" value="ON" > Not selected<br>
 <input type="checkbox" name="QPA" value="ON" disabled="disabled"> Disabled<br>
 <input type="checkbox" name="QLY" value="ON" checked="checked" > Selected
 <br /><br />
-<input type="submit" name="submit" value="Submit" /> 
-<input type="image" name="submit" src="goto.gif" /> 
+<input type="submit" name="submit" value="Submit" />
+<input type="image" name="submit" src="goto.gif" />
 <input type="button" name="submit" value="Button" />
 <input type="reset" name="submit" value="Reset" />
 <br /><br />
@@ -1507,18 +1570,6 @@ Etiam id libero at magna pellentesque aliquet. Nulla sit amet ipsum id enim temp
 <p>P: Nulla felis erat, imperdiet eu, ullamcorper non, nonummy quis, elit. Suspendisse potenti. Ut a eros at ligula vehicula pretium. Maecenas feugiat pede vel risus. Nulla et lectus. <i>Fusce</i><annotation content="Fusce is a funny word!" subject="Idle Comments" icon="Note" author="Ian Back" pos-x="198" /> eleifend neque sit amet erat. Integer consectetuer nulla non orci. Morbi feugiat pulvinar dolor. Cras odio. Donec mattis, nisi id euismod auctor, neque metus pellentesque risus, at eleifend lacus sapien et risus. Phasellus metus. Phasellus feugiat, lectus ac aliquam molestie, leo lacus tincidunt turpis, vel aliquam quam odio et sapien. Mauris ante pede, auctor ac, suscipit quis, malesuada sed, nulla. Integer sit amet odio sit amet lectus luctus euismod. Donec et nulla. Sed quis orci. </p>
 
 
-<!-- GRAPH -->
-<pagebreak />
-<h3>Graphs<bookmark content="Graphs" level="1" /><tocentry name="" content="Graphs" level="0" /><indexentry content="Graphs"  /></h3>
-<table id="tbl_1" class="sub"><tbody><tr><td></td><td align="right"><b>Female</b></td><td align="right"><b>Male</b></td></tr><tr><td>35 - 44</td><td align="right"><b>4</b></td><td align="right"><b>2</b></td></tr><tr><td>45 - 54</td><td align="right"><b>5</b></td><td align="right"><b>7</b></td></tr><tr><td>55 - 64</td><td align="right"><b>21</b></td><td align="right"><b>18</b></td></tr><tr><td>65 - 74</td><td align="right"><b>11</b></td><td align="right"><b>14</b></td></tr><tr><td>75 - 84</td><td align="right"><b>10</b></td><td align="right"><b>10</b></td></tr><tr><td>85 - 94</td><td align="right"><b>2</b></td><td align="right"><b>1</b></td></tr><tr><td>95 - 104</td><td align="right"><b>1</b></td><td align="right"><b></b></td></tr>
-<tr><td>TOTAL</td><td align="right">54</td><td align="right">52</td></tr>
-</tbody></table>
-
-<h5>Subscriptions for 2008-09<tocentry name="Figures" content="Graph: Subscriptions for 2008-09" /></h5>
-<jpgraph table="tbl_1" type="bar" stacked="0" dpi="300" title="New subscriptions" splines="1" bandw="0" antialias="1" label-y="% patients" label-x="Age group" axis-x="text" axis-y="lin" percent="0"  series="cols" data-col-begin="2" data-row-begin="2" data-col-end="0" data-row-end="-1" show-values="1" width="600" legend-overlap="1" hide-grid="1" hide-y-axis="1" />
-
-
-
 <!-- FULL IMAGES & BARCODE -->
 <pagebreak />
 <h3>Full Images & Barcode<bookmark content="Full Images &amp; Barcode" level="1" /><tocentry name="Figures" content="Full size image & Barcode" level="0" /><indexentry content="Image:full-size"  /><tocentry name="" content="Barcode" level="0" /><indexentry content="Barcode"  /></h3>
@@ -1527,7 +1578,7 @@ Etiam id libero at magna pellentesque aliquet. Nulla sit amet ipsum id enim temp
 
 <!-- EXAMPLE PHP CODE -->
 <div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
-$mpdf->SetAlpha(0.5); 
+$mpdf->SetAlpha(0.5);
 $mpdf->Image(\'clematis.jpg\',0,0,210,297,\'jpg\',\'\',true, false);
 // the last "false" allows a full page picture
 $mpdf->SetAlpha(1);
@@ -1538,7 +1589,7 @@ $mpdf->SetAlpha(1);
 
 <!-- EXAMPLE PHP CODE -->
 <div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
-$mpdf->writeBarcode(\'978-0-9542246-0-8\', 1, 130, 230, 1,0, 3,3,4,4);	
+$mpdf->writeBarcode(\'978-0-9542246-0-8\', 1, 130, 230, 1,0, 3,3,4,4);
 ')) .'</div>
 <!-- END EXAMPLE PHP CODE -->
 
@@ -1546,7 +1597,7 @@ $mpdf->writeBarcode(\'978-0-9542246-0-8\', 1, 130, 230, 1,0, 3,3,4,4);
 
 <!-- EXAMPLE PHP CODE -->
 <div class="phpcode">'. nl2br(htmlspecialchars('/* ALTERNATIVE PHP METHOD */
-$mpdf->AddPage(\'\',NEXT-ODD\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',-1,-1,-1,-1);	
+$mpdf->AddPage(\'\',NEXT-ODD\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',\'\',-1,-1,-1,-1);
 $mpdf->WriteHTML(\'<h2>Index<bookmark content="Index" /></h2>\');
 $mpdf->WriteHTML(\'<indexinsert cols="2" font="serif" div-font="sans-serif" links="on" />\');
 ')) .'</div>
@@ -1579,18 +1630,16 @@ $mpdf->WriteHTML(\'<indexinsert cols="2" font="serif" div-font="sans-serif" link
 //==============================================================
 //==============================================================
 
-include("../mpdf.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$mpdf=new mPDF('s','A4','','',25,15,21,22,10,10); 
+$mpdf = new mPDF('','A4','','',25,15,21,22,10,10);
 
 $mpdf->progbar_heading = 'mPDF file progress (Advanced)';
 $mpdf->StartProgressBarOutput(2);
 
 $mpdf->mirrorMargins = 1;
 $mpdf->SetDisplayMode('fullpage','two');
-$mpdf->useGraphs = true;
 $mpdf->list_number_suffix = ')';
-$mpdf->hyphenate = true;
 
 $mpdf->debug  = true;
 
@@ -1604,6 +1653,3 @@ exit;
 //==============================================================
 //==============================================================
 //==============================================================
-
-
-?>

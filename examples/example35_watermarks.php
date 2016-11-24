@@ -21,16 +21,15 @@ $html = '
 //==============================================================
 //==============================================================
 
-include("../mpdf.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$mpdf=new mPDF('c'); 
+$mpdf = new mPDF('c');
 
 $mpdf->SetDisplayMode('fullpage');
 
 $mpdf->SetWatermarkText('DRAFT');
 $mpdf->watermark_font = 'DejaVuSansCondensed';
 $mpdf->showWatermarkText = true;
-
 
 $mpdf->WriteHTML($html);
 $mpdf->AddPage();
@@ -54,6 +53,3 @@ exit;
 //==============================================================
 //==============================================================
 //==============================================================
-
-
-?>

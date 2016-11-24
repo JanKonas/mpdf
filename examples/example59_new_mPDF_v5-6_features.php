@@ -1,10 +1,8 @@
 <?php
 
-ini_set("memory_limit","64M");
+require_once __DIR__ . '/../vendor/autoload.php';
 
-include("../mpdf.php");
-
-$mpdf=new mPDF(''); 
+$mpdf = new mPDF('');
 
 
 //==============================================================
@@ -12,13 +10,13 @@ $mpdf=new mPDF('');
 $html = '
 <style>
 .gradient {
-	border:0.1mm solid #220044; 
+	border:0.1mm solid #220044;
 	background-color: #f0f2ff;
 	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;
 	box-shadow: 0.3em 0.3em #888888;
 }
 .rounded {
-	border:0.1mm solid #220044; 
+	border:0.1mm solid #220044;
 	background-color: #f0f2ff;
 	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;
 	border-radius: 2mm;
@@ -31,17 +29,17 @@ h4 {
 	margin-top: 0;
 }
 div.text {
-	padding:0.8em; 
+	padding:0.8em;
 	margin-bottom: 0.7em;
 }
 p { margin: 0.25em 0; }
 .code {
 	font-family: monospace;
 	font-size: 9pt;
-	background-color: #d5d5d5; 
+	background-color: #d5d5d5;
 	margin: 1em 1cm;
 	padding: 0 0.3cm;
-	border:0.2mm solid #000088; 
+	border:0.2mm solid #000088;
 	box-shadow: 0.3em 0.3em #888888;
 }
 table {
@@ -55,14 +53,14 @@ td, th {
 	text-align: left;
 	font-weight: normal;
 }
-.shadowtitle { 
-	height: 8mm; 
-	background-color: #EEDDFF; 
-	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;  
-	padding: 0.8em; 
+.shadowtitle {
+	height: 8mm;
+	background-color: #EEDDFF;
+	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;
+	padding: 0.8em;
 	padding-left: 3em;
 	font-family:sans;
-	font-size: 26pt; 
+	font-size: 26pt;
 	font-weight: bold;
 	border: 0.2mm solid white;
 	border-radius: 0.2em;
@@ -70,15 +68,15 @@ td, th {
 	color: #AAAACC;
 	text-shadow: 0.03em 0.03em #666, 0.05em 0.05em rgba(127,127,127,0.5), -0.015em -0.015em white;
 }
-h3 { 
-	margin: 3em 0 2em -15mm; 
-	background-color: #EEDDFF; 
-	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;  
-	padding: 0.5em; 
+h3 {
+	margin: 3em 0 2em -15mm;
+	background-color: #EEDDFF;
+	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;
+	padding: 0.5em;
 	padding-left: 3em;
 	width: 50%;
 	font-family:sans;
-	font-size: 16pt; 
+	font-size: 16pt;
 	font-weight: bold;
 	border-left: none;
 	border-radius: 0 2em 2em 0;
@@ -102,7 +100,7 @@ meter.pop  {
 	margin: 3px;
 }
 fieldset { border: 1px solid #000000; border-radius: 5px; padding: 10px; }
-div.folder { 
+div.folder {
 	background: url(data:image/gif;base64,R0lGODlhEAAOALMAAOazToeHh0tLS/7LZv/0jvb29t/f3//Ub//ge8WSLf/rhf/3kdbW1mxsbP//mf///yH5BAAAAAAALAAAAAAQAA4AAARe8L1Ekyky67QZ1hLnjM5UUde0ECwLJoExKcppV0aCcGCmTIHEIUEqjgaORCMxIC6e0CcguWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7) no-repeat 4px center;
 	padding: 5px 0 5px 25px;
 	border: 1px solid #000000;
@@ -271,7 +269,7 @@ HTML attributes width and height are supported, although not officially part of 
 </div>
 
 <div class="folder">This &lt;div&gt; has the folder icon set as an embedded image in the CSS</div>
-<p class="code">div.folder { 
+<p class="code">div.folder {
 	background: url(data:image/gif;base64,R0lGODlhEAAOALMAAOazToeHh0tLS/7LZv/0jvb29t/f3//Ub//ge8WSLf/rhf/3kdbW1mxsbP//mf///yH5BAAAAAAALAAAAAAQAA4AAARe8L1Ekyky67QZ1hLnjM5UUde0ECwLJoExKcppV0aCcGCmTIHEIUEqjgaORCMxIC6e0CcguWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7) no-repeat 4px center;
 	padding: 5px 0 5px 25px;
 	border: 1px solid #000000;
@@ -279,102 +277,13 @@ HTML attributes width and height are supported, although not officially part of 
 </p>
 
 
-
-<h3>Arabic text</h3>
-
-
-
-<br /><br />
-
-<div class="gradient text">
-
-<p>The script handling Arabic text (RTL) was rewritten in mPDF 5.5 with improved support for Pashto/Sindhi/Urdu/Kurdish, especially for joining characters and added new presentation forms.</p>
-<p>Some characters in Pashto/Sindhi/Urdu/Kurdish do not have Unicode values for the final/initial/medial forms of the characters. However, some fonts include glyphs for these characters "un-mapped" to Unicode (including XB Zar and XB Riyaz, which are bundled with mPDF).</p>
-<p>By editing config_fonts.php and adding:</p> 
-<p class="code">
-	\'unAGlyphs\' => true,
-</p>
-<p>to appropriate fonts, this will force mPDF to use unmapped glyphs. It requires the font file to include a Format 2.0 POST table which references the glyphs by name as e.g. uni067C.med or uni067C.medi</p>
-<p>XB Riyaz, XB Zar, Arabic Typesetting (MS), Arial (MS) all contain this table. NB If you want to know if a font file is suitable, you can open a .ttf file in a text editor and search for "uni067C.med" - if it exists, it may work!</p>
-<p>Using "unAGlyphs" forces subsetting of fonts, and will not work with SIP/SMP fonts (using characters beyond the Unicode BMP Plane).</p>
-<p>mPDF maps these characters to part of the Private Use Area allocated by Unicode U+F500-F7FF. This could interfere with correct use
-if the font already utilises these codes (unlikely).</p>
-</div>
-
-<pagebreak />
-<p>Using Arial MS font:</p>
-';
-//==============================================================
-// Test for all Arabic characters which may need joining
-//==============================================================
-$mpdf->cacheTables = true;
-$html .='
-<style>
-.script-arabic { font-family: arial; font-size: 22pt; direction: rtl; padding: 0.1em 0.5em; text-align: center; }
-.joined { color: #888888; }
-</style>
-<div dir="ltr">
 ';
 
-
-$ranges = array(0=>array(0x0621, 0x063a), 1=>array(0x0640, 0x064a), 2=>array(0x0671, 0x0672), 3=>array(0x0674, 0x06d3));
-
-foreach($ranges AS $r) {
-	$html .= '<table border="1" style="border-collapse: collapse">';
-	$html .= '<thead><tr>';
-	$html .= '<td></td>';
-	$html .= '<td style="text-align:center; padding: 0 0.5em;">Isolated</td>';
-	$html .= '<td></td>';
-	$html .= '<td style="text-align:center; padding: 0 0.5em;">Final</td>';
-	$html .= '<td style="text-align:center; padding: 0 0.5em;">Medial</td>';
-	$html .= '<td style="text-align:center; padding: 0 0.5em;">Initial</td>';
-	$html .= '<td></td>';
-	$html .= '</tr></thead><tbody>';
-	for($n=$r[0];$n<=$r[1];$n++) {
-
-		$html .= '<tr>';
-		$html .= '<td>U+0'.strtoupper(dechex($n)) .'</td>';
-
-		$html .= '<td class="script-arabic">&#x0'.dechex($n) .';</td>';
-		$html .= '<td class="script-arabic joined">&#x626;&#x0'.dechex($n) .';</td>';
-		$html .= '<td class="script-arabic">&#x640;&#x0'.dechex($n) .';</td>';
-		$html .= '<td class="script-arabic">&#x640;&#x0'.dechex($n) .';&#x640;</td>';
-		$html .= '<td class="script-arabic">&#x0'.dechex($n) .';&#x640;</td>';
-		$html .= '<td class="script-arabic joined">&#x0'.dechex($n) .';&#x647;</td>';
-
-		$html .= '</tr>';
-	}
-	$html .='</tbody></table>';
-$html .='<br />';
-}
-
-
-
-$html .='</div>';
-//==============================================================
-
-$html .='
-<br />
-
-
-';
-
-//==============================================================
-if ($_REQUEST['html']) { echo $html; exit; }
-if ($_REQUEST['source']) { 
-	$file = __FILE__;
-	header("Content-Type: text/plain");
-	header("Content-Length: ". filesize($file));
-	header("Content-Disposition: attachment; filename='".$file."'");
-	readfile($file);
-	exit; 
-}
 
 //==============================================================
 
 $mpdf->WriteHTML($html);
 
-// OUTPUT
 $mpdf->Output(); exit;
 
 
@@ -382,6 +291,3 @@ $mpdf->Output(); exit;
 //==============================================================
 //==============================================================
 //==============================================================
-
-
-?>

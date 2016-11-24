@@ -97,7 +97,7 @@ SVG <img style="vertical-align: top" src="tiger.php?t=svg" width="85" />
 
 
 <h3>Image Alignment</h3>
-<div>From mPDF version 4.2 onwards, in-line images can be individually aligned (vertically). Most of the values for "vertical-align" are supported: top, bottom, middle, baseline, text-top, and text-bottom. The default value for vertical alignment has been changed to baseline, and the default padding to 0, consistent with most browsers.
+<div>In-line images can be individually aligned (vertically). Most of the values for "vertical-align" are supported: top, bottom, middle, baseline, text-top, and text-bottom. The default value for vertical alignment is baseline, and the default padding 0, consistent with most browsers.
 </div>
 <br />
 
@@ -160,19 +160,19 @@ top: <img src="sunset.jpg" width="100" style="vertical-align: top;" />
 </div>
 
 <h3>Image Border and padding</h3>
-From mPDF v4.2, Image padding is supported as well as border and margin.
+Image padding is supported as well as border and margin.
 <img src="sunset.jpg" width="100" style="border:3px solid #44FF44; padding: 1em;" />
 
 <h3>Rotated Images</h3>
-<img src="tiger.png" width="100" /> 
-<img src="tiger.png" rotate="90" width="100" /> 
-<img src="tiger.png" rotate="180" width="100" /> 
-<img src="tiger.png" rotate="-90" width="100" /> 
+<img src="tiger.png" width="100" />
+<img src="tiger.png" rotate="90" width="100" />
+<img src="tiger.png" rotate="180" width="100" />
+<img src="tiger.png" rotate="-90" width="100" />
 <br />
-<img src="tiger.jpg" width="100" /> 
-<img src="tiger.jpg" rotate="90" width="100" /> 
-<img src="tiger.jpg" rotate="180" width="100" /> 
-<img src="tiger.jpg" rotate="-90" width="100" /> 
+<img src="tiger.jpg" width="100" />
+<img src="tiger.jpg" rotate="90" width="100" />
+<img src="tiger.jpg" rotate="180" width="100" />
+<img src="tiger.jpg" rotate="-90" width="100" />
 <br />
 <img src="tiger2.wmf" width="80" /> &nbsp; &nbsp; &nbsp;
 <img src="tiger2.wmf" rotate="90" width="80" /> &nbsp; &nbsp; &nbsp;
@@ -182,16 +182,16 @@ From mPDF v4.2, Image padding is supported as well as border and margin.
 <img src="tiger.svg" width="100" />&nbsp;
 <img src="tiger.svg" rotate="90" width="85" />&nbsp;
 <img src="tiger.svg" rotate="180" width="100" />&nbsp;
-<img src="tiger.svg" rotate="-90" width="85" /> 
+<img src="tiger.svg" rotate="-90" width="85" />
 <br />
 
 ';
 //==============================================================
 //==============================================================
 //==============================================================
-include("../mpdf.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$mpdf=new mPDF('c'); 
+$mpdf = new mPDF('c');
 
 $mpdf->WriteHTML($html);
 
@@ -202,6 +202,3 @@ exit;
 //==============================================================
 //==============================================================
 //==============================================================
-
-
-?>
